@@ -1,0 +1,185 @@
+.more {
+  padding-bottom: 50px;
+
+  &__title {
+    margin-bottom: 12px;
+
+    @include on-tablet() {
+      grid-column: span 6;
+      text-align: center;
+    }
+
+    @include on-desktoplittle() {
+      margin-bottom: 25px;
+    }
+  }
+
+  &__text {
+    font-size: 12px;
+    line-height: 100%;
+    margin-bottom: 48px;
+    color: $main-title-color-accent;
+
+    @include on-tablet() {
+      grid-column: span 6;
+      text-align: center;
+      margin-bottom: 165px;
+    }
+
+    @include on-desktoplittle() {
+      font-size: 14px;
+      margin-bottom: 200px;
+    }
+
+    @include on-desktopmiddle {
+      margin-bottom: 185px;
+    }
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat (2, 1fr);
+    column-gap: 20px;
+    row-gap: 22px;
+
+    @include on-tablet() {
+      grid-template-columns: repeat(6, 1fr);
+      row-gap: 72px;
+    }
+
+    @include on-desktoplittle() {
+      grid-template-columns: repeat(12, 1fr);
+      row-gap: 0;
+    }
+
+    @include on-desktopmiddle {
+      grid-template-columns: repeat(16, 1fr);
+    }
+  }
+
+  &__block {
+    position: relative;
+    height: 82px;
+    padding-right: 30px;
+    grid-column: span 2;
+
+    @include on-tablet() {
+      height: 195px;
+      // padding-top: 35%;
+      padding-right: 0;
+      grid-column: span 3;
+      text-align: center;
+    }
+
+    @include on-desktoplittle() {
+      // padding-top: 53%;
+      grid-column: span 3;
+      height: 267px;
+    }
+
+    @include on-desktopmiddle {
+      grid-column: span 4;
+      height: 295px;
+    }
+
+    &::before {
+      display: none;
+
+      @include on-tablet {
+        display: block;
+        content: url("../icons/more-cap.svg");
+        position: absolute;
+        width: 98px;
+        height: 81px;
+        // bottom: 58%;
+        // right: 35%;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -280%);
+      }
+
+      @include on-desktoplittle() {
+        // bottom: 65%;
+        // right: 30%;
+
+        top: 42%;
+        left: 50%;
+        transform: translate(-50%, -280%);
+      }
+
+      @include on-desktopmiddle {
+        // bottom: 47%;
+        // right: 35%;
+
+        top: 37%;
+        left: 50%;
+        transform: translate(-50%, -280%);
+      }
+    }
+
+    &-estate::before {
+      @include on-tablet {
+        content: url("../icons/more-building.svg");
+      }
+    }
+
+    &-fitness::before {
+      @include on-tablet {
+        content: url("../icons/more-circle.svg");
+      }
+    }
+
+    &-social::before {
+      @include on-tablet {
+        content: url("../icons/more-flow.svg");
+      }
+    }
+  }
+
+  &__subtitle {
+    margin-bottom: 15px;
+
+    @include on-tablet {
+      margin-bottom: 20px;
+    }
+  }
+
+  @include on-tablet {
+    padding-bottom: 0;
+  }
+}
+.section__text {
+  position: relative;
+  max-height: 52px;
+  overflow-y: auto;
+
+  @include on-tablet {
+    max-height: 81px;
+  }
+  @include on-desktoplittle() {
+    max-height: 108px;
+  }
+
+  @include on-desktopmiddle {
+    max-height: 81px;
+  }
+}
+
+.section__text::after {
+  content: "...";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: #fff;
+  font-size: 14px;
+  background: #05040b; /* Совпадает с фоном блока */
+  padding: 0 5px;
+
+  @include on-tablet {
+    display: none;
+  }
+}
+
+.section__text.hide-ellipsis::after {
+  display: none;
+}
