@@ -10,8 +10,8 @@
   transition:
     transform 0.5s ease-in-out,
     opacity 0.5s ease-in-out; /* Плавный переход */
+
   z-index: 1000;
-  // transform: translateX(-100%);
   top: 0;
   background-color: $background-color;
   width: 100%;
@@ -24,10 +24,10 @@
     justify-content: space-between;
 
     @include on-tablet {
-      margin: 25px 0 25px;
+      margin: 25px 0;
     }
 
-    @include on-desktoplittle() {
+    @include on-desktoplittle {
       margin: 0;
       margin-top: 6%;
     }
@@ -43,7 +43,7 @@
     height: 15px;
     @include hover(transform, scale(1.2));
 
-    @include on-desktoplittle() {
+    @include on-desktoplittle {
       display: none;
     }
   }
@@ -81,7 +81,7 @@
       }
     }
 
-    @include on-desktoplittle() {
+    @include on-desktoplittle {
       position: absolute;
       width: 57%;
       left: 23%;
@@ -113,14 +113,14 @@
 .step.active {
   border-bottom: 2px solid #00c4cc;
 
-  @include on-desktoplittle() {
+  @include on-desktoplittle {
     border-bottom: 2px solid transparent;
   }
 }
 
 .step.active::after {
-  @include on-desktoplittle() {
-    content: "";
+  @include on-desktoplittle {
+    content: '';
 
     position: absolute;
     bottom: 10px;

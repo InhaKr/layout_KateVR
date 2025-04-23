@@ -4,34 +4,45 @@
   &__img-static {
     width: 320px;
 
-    @include on-tablet() {
+    @include on-tablet {
       width: 386px;
     }
-    @include on-desktoplittle() {
+    @include on-desktoplittle {
       display: none;
     }
   }
 
   &__img {
-    @include on-desktoplittle() {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    @include on-desktoplittle {
       width: 650px;
     }
   }
 
   &__item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
     display: none;
 
-    @include on-desktoplittle() {
+    @include on-desktoplittle {
       display: block;
     }
   }
 
-  @include on-tablet() {
+  @include on-tablet {
     grid-column: 4/-1;
     transform: translateY(45%);
   }
 
-  @include on-desktoplittle() {
+  @include on-desktoplittle {
     position: relative;
     width: 100%;
     height: 360px; /* Укажи нужную высоту слайдера */
@@ -46,29 +57,16 @@
   }
 }
 
-// .slider {
-//   position: relative;
+// .slider__item {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
 //   width: 100%;
-//   height: 360px; /* Укажи нужную высоту слайдера */
-//   overflow: hidden;
+//   height: 100%;
+//   opacity: 0;
+//   transition: opacity 0.5s ease;
 // }
-
-.slider__item {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
 
 .slider__item.active {
   opacity: 1;
-}
-
-.slider__img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }

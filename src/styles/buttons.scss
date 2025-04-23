@@ -36,7 +36,7 @@ button {
     font-size: 16px;
   }
 
-  @include on-desktoplittle() {
+  @include on-desktoplittle {
     width: 200px;
     justify-self: start;
     margin: 32px 0 0;
@@ -46,7 +46,7 @@ button {
     grid-column: 1 / -5;
     justify-self: start;
     width: 200px;
-    margin: 60px 0px 0;
+    margin: 60px 0;
   }
 }
 
@@ -71,11 +71,11 @@ button {
     background-color: $background-color;
   }
 
-  @include on-tablet() {
+  @include on-tablet {
     padding: 22px 0 0;
   }
 
-  @include on-desktoplittle() {
+  @include on-desktoplittle {
     padding-left: 60px;
   }
 
@@ -114,13 +114,13 @@ button {
       background-color: $main-title-color;
     }
 
-    @include on-desktoplittle() {
+    @include on-desktoplittle {
       font-size: 16px;
       padding: 13px;
     }
   }
 
-  @include on-desktoplittle() {
+  @include on-desktoplittle {
     position: absolute;
     top: 45px;
     left: 84%;

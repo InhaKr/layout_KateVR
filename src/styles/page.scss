@@ -124,14 +124,20 @@ select {
 }
 
 .play-button span::after {
-  content: "";
+  content: '';
   position: absolute;
   right: 0;
   top: 50%;
   transform: translateY(-50%);
   width: 20px;
   height: 2px;
-  background: repeating-linear-gradient(to right, #00c4ff, #00c4ff 4px, transparent 4px, transparent 8px);
+  background: repeating-linear-gradient(
+    to right,
+    #00c4ff,
+    #00c4ff 4px,
+    transparent 4px,
+    transparent 8px
+  );
 }
 
 .section__title {
@@ -146,7 +152,7 @@ select {
     color: $main-title-color-accent;
   }
 
-  @include on-desktoplittle() {
+  @include on-desktoplittle {
     font-size: 36px;
   }
 }

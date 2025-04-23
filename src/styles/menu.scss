@@ -1,6 +1,5 @@
 .icon {
   position: relative;
-  // display: inline-block;
   width: 20px;
   height: 10px;
   background-size: cover;
@@ -10,11 +9,8 @@
     height: 13px;
   }
 
-  // @include on-desktoplittle() {
-  //   display: none;
-  // }
   &-close--menu {
-    @include on-desktoplittle() {
+    @include on-desktoplittle {
       display: none;
     }
   }
@@ -59,7 +55,6 @@
   &-decktop {
     @include on-desktoplittle {
       //   /* Делаем меню видимым на десктопе */
-      position: static; /* Убираем фиксированное позиционирование */
       transform: none; /* Убираем анимацию открытия */
       opacity: 5; /* Делаем видимым */
       pointer-events: all; /* Делаем кликабельным */
@@ -79,11 +74,11 @@
     grid-column: span 2;
 
     @include on-tablet {
-      padding: 55px 0 139px 0;
+      padding: 55px 0 139px;
       grid-column: 2/-1;
     }
 
-    @include on-desktoplittle() {
+    @include on-desktoplittle {
       padding: 0;
     }
 
@@ -183,12 +178,12 @@
       color: $main-title-color-accent;
       background-color: #110e25;
 
-      @include on-desktoplittle() {
+      @include on-desktoplittle {
         background-color: transparent;
       }
     }
 
-    @include on-desktoplittle() {
+    @include on-desktoplittle {
       font-size: 16px;
       padding: 11px 15px;
     }

@@ -1,5 +1,5 @@
 .about {
-  background: linear-gradient(to bottom, #191536, #000000);
+  background: linear-gradient(to bottom, #191536, #000);
   padding-block: 48px;
 
   &__top {
@@ -15,7 +15,7 @@
         width: 340px;
       }
 
-      @include on-desktoplittle() {
+      @include on-desktoplittle {
         width: 332px;
         grid-column: 6;
         padding-top: 75px;
@@ -35,7 +35,7 @@
       margin-bottom: 10px;
     }
 
-    @include on-desktoplittle() {
+    @include on-desktoplittle {
       justify-content: end;
       margin-bottom: 85px;
     }
@@ -57,7 +57,7 @@
       height: 270px;
     }
 
-    @include on-desktoplittle() {
+    @include on-desktoplittle {
       grid-column: 3;
       width: 430px;
       height: 290px;
@@ -79,6 +79,34 @@
     margin: 0 auto;
   }
 
+  .video--close-video {
+    display: none; /* Изначально скрываем кнопку закрытия */
+    position: absolute;
+    top: 50px;
+    right: 5px;
+    width: 15px;
+    height: 15px;
+    background: url("../icons/menu-close.svg") no-repeat center;
+    background-size: contain;
+    text-decoration: none;
+
+    @include on-tablet {
+      top: -15px;
+    }
+
+    @include on-desktoplittle {
+      top: -20px;
+      right: 0;
+    }
+
+    @include on-desktopmiddle {
+      width: 30px;
+      height: 30px;
+      top: 10px;
+      right: -30px;
+    }
+  }
+
   &__video-iframe {
     display: none; /* Изначально скрываем iframe */
     width: 100%;
@@ -86,11 +114,11 @@
     position: absolute;
     bottom: 12px;
 
-    @include on-tablet() {
+    @include on-tablet {
       height: 400px;
     }
 
-    @include on-desktoplittle() {
+    @include on-desktoplittle {
       height: 500px;
       width: 115%;
       bottom: -140px;
@@ -100,7 +128,9 @@
 
   &__play-button {
     position: absolute;
-    transform: translate(-30px, -160px);
+
+    // transform: translate(-30px, -160px);
+
     background: none;
     border: none;
     cursor: pointer;
@@ -110,17 +140,17 @@
     left: 40%;
     transform: translateX(-50%); /* Центрируем по горизонтали */
 
-    @include on-tablet() {
+    @include on-tablet {
       width: 280px;
-      transform: translate(330px, -200px);
 
       /* На планшетах и шире (≥768px) */
       bottom: 105px; /* Тот же отступ снизу */
       left: calc(50% + 170px); /* Смещаем на половину ширины текста (340px / 2 = 170px) */
+
       transform: translateX(-70%); /* Центрируем */
     }
 
-    @include on-desktoplittle() {
+    @include on-desktoplittle {
       transform: translate(-28%, 78%);
     }
 
@@ -144,7 +174,7 @@
         grid-row: 1;
       }
 
-      @include on-desktoplittle() {
+      @include on-desktoplittle {
         grid-column: 6;
       }
     }
@@ -166,15 +196,13 @@
       top: 247px;
       display: flex;
       gap: 5px;
-      // left: 50%;
-      // transform: translateX(-50%);
 
-      @include on-tablet() {
+      @include on-tablet {
         left: 150px;
         top: 280px;
       }
 
-      @include on-desktoplittle() {
+      @include on-desktoplittle {
         display: none;
       }
     }
@@ -193,7 +221,7 @@
     }
 
     &-counter {
-      @include on-desktoplittle() {
+      @include on-desktoplittle {
         position: absolute;
         font-size: 14px;
         top: -10px;
@@ -207,14 +235,14 @@
     }
 
     &-nav {
-      @include on-desktoplittle() {
+      @include on-desktoplittle {
         width: 207px;
         display: flex;
         justify-content: space-between;
       }
     }
 
-    @include on-desktoplittle() {
+    @include on-desktoplittle {
       margin-bottom: 145px;
     }
   }
@@ -228,11 +256,15 @@
         display: grid;
         grid-template-columns: repeat (6, 1fr);
         grid-template-rows: auto auto;
-        column-gap: 20px;
-        row-gap: 20px;
+
+        // column-gap: 20px;
+        // row-gap: 20px;
+
+        gap: 20px;
       }
-      @include on-desktoplittle() {
-        row-gap: 0px;
+
+      @include on-desktoplittle {
+        row-gap: 0;
       }
     }
   }
@@ -259,7 +291,7 @@
         margin-bottom: 12px;
       }
 
-      @include on-desktoplittle() {
+      @include on-desktoplittle {
         margin-bottom: 17px;
       }
 
@@ -316,7 +348,7 @@
           -webkit-text-fill-color: transparent;
           opacity: 0.4;
 
-          @include on-desktoplittle() {
+          @include on-desktoplittle {
             width: 337px;
             font-size: 64px;
             top: 7%;
@@ -338,7 +370,7 @@
           -webkit-text-fill-color: transparent;
           opacity: 0.2;
 
-          @include on-desktoplittle() {
+          @include on-desktoplittle {
             width: 337px;
             font-size: 64px;
             top: -40%;
@@ -346,7 +378,7 @@
         }
       }
 
-      @include on-desktoplittle() {
+      @include on-desktoplittle {
         width: 337px;
         font-size: 64px;
         top: 10px;
@@ -376,38 +408,11 @@
     padding-block: 70px;
   }
 
-  @include on-desktoplittle() {
+  @include on-desktoplittle {
     padding-block: 85px;
   }
 
   @include on-desktopmiddle {
     padding-top: 133px;
-  }
-}
-
-.video--close-video {
-  display: none; /* Изначально скрываем кнопку закрытия */
-  position: absolute;
-  top: 50px;
-  right: 5px;
-  width: 15px;
-  height: 15px;
-  background: url("../icons/menu-close.svg") no-repeat center;
-  background-size: contain;
-  text-decoration: none;
-
-  @include on-tablet() {
-    top: -15px;
-  }
-  @include on-desktoplittle() {
-    top: -20px;
-    right: 0;
-  }
-
-  @include on-desktopmiddle {
-    width: 30px;
-    height: 30px;
-    top: 10px;
-    right: -30px;
   }
 }

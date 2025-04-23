@@ -4,12 +4,12 @@
   &__title {
     margin-bottom: 12px;
 
-    @include on-tablet() {
+    @include on-tablet {
       grid-column: span 6;
       text-align: center;
     }
 
-    @include on-desktoplittle() {
+    @include on-desktoplittle {
       margin-bottom: 25px;
     }
   }
@@ -20,15 +20,15 @@
     margin-bottom: 48px;
     color: $main-title-color-accent;
 
-    @include on-tablet() {
+    @include on-tablet {
       grid-column: span 6;
       text-align: center;
       margin-bottom: 165px;
     }
 
-    @include on-desktoplittle() {
-      font-size: 14px;
+    @include on-desktoplittle {
       margin-bottom: 200px;
+      font-size: 14px;
     }
 
     @include on-desktopmiddle {
@@ -39,15 +39,14 @@
   &__wrapper {
     display: grid;
     grid-template-columns: repeat (2, 1fr);
-    column-gap: 20px;
-    row-gap: 22px;
+    gap: 22px 20px;
 
-    @include on-tablet() {
+    @include on-tablet {
       grid-template-columns: repeat(6, 1fr);
       row-gap: 72px;
     }
 
-    @include on-desktoplittle() {
+    @include on-desktoplittle {
       grid-template-columns: repeat(12, 1fr);
       row-gap: 0;
     }
@@ -60,18 +59,17 @@
   &__block {
     position: relative;
     height: 82px;
-    padding-right: 30px;
     grid-column: span 2;
+    padding-right: 30px;
 
-    @include on-tablet() {
+    @include on-tablet {
       height: 195px;
-      // padding-top: 35%;
       padding-right: 0;
       grid-column: span 3;
       text-align: center;
     }
 
-    @include on-desktoplittle() {
+    @include on-desktoplittle {
       // padding-top: 53%;
       grid-column: span 3;
       height: 267px;
@@ -86,31 +84,23 @@
       display: none;
 
       @include on-tablet {
+        content: url('../icons/more-cap.svg');
         display: block;
-        content: url("../icons/more-cap.svg");
         position: absolute;
         width: 98px;
         height: 81px;
-        // bottom: 58%;
-        // right: 35%;
         top: 60%;
         left: 50%;
         transform: translate(-50%, -280%);
       }
 
-      @include on-desktoplittle() {
-        // bottom: 65%;
-        // right: 30%;
-
+      @include on-desktoplittle {
         top: 42%;
         left: 50%;
         transform: translate(-50%, -280%);
       }
 
       @include on-desktopmiddle {
-        // bottom: 47%;
-        // right: 35%;
-
         top: 37%;
         left: 50%;
         transform: translate(-50%, -280%);
@@ -119,19 +109,19 @@
 
     &-estate::before {
       @include on-tablet {
-        content: url("../icons/more-building.svg");
+        content: url('../icons/more-building.svg');
       }
     }
 
     &-fitness::before {
       @include on-tablet {
-        content: url("../icons/more-circle.svg");
+        content: url('../icons/more-circle.svg');
       }
     }
 
     &-social::before {
       @include on-tablet {
-        content: url("../icons/more-flow.svg");
+        content: url('../icons/more-flow.svg');
       }
     }
   }
@@ -148,6 +138,7 @@
     padding-bottom: 0;
   }
 }
+
 .section__text {
   position: relative;
   max-height: 52px;
@@ -156,7 +147,8 @@
   @include on-tablet {
     max-height: 81px;
   }
-  @include on-desktoplittle() {
+
+  @include on-desktoplittle {
     max-height: 108px;
   }
 
@@ -166,7 +158,7 @@
 }
 
 .section__text::after {
-  content: "...";
+  content: '...';
   position: absolute;
   bottom: 0;
   right: 0;

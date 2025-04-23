@@ -8,8 +8,8 @@
   transition:
     transform 0.5s ease-in-out,
     opacity 0.5s ease-in-out; /* Плавный переход */
+
   z-index: 1000;
-  // transform: translateX(-100%);
   top: 0;
   background-color: #191536;
   width: 100%;
@@ -41,7 +41,7 @@
       width: 17px;
       height: 17px;
 
-      @include on-desktoplittle() {
+      @include on-desktoplittle {
         width: 20px;
         height: 20px;
         top: 15px;
@@ -51,7 +51,7 @@
 
     @include hover(transform, scale(1.2));
 
-    @include on-tablet() {
+    @include on-tablet {
       margin: 35px 0 20px;
     }
   }
@@ -71,17 +71,17 @@
   &__text {
     grid-column: span 2;
 
-    @include on-tablet() {
+    @include on-tablet {
       grid-column: span 6;
     }
 
-    @include on-desktoplittle() {
+    @include on-desktoplittle {
       grid-column: 2/-1;
     }
   }
 
   &-help {
-    @include on-desktoplittle() {
+    @include on-desktoplittle {
       margin: 15px 25px 25px 0;
     }
     @include on-desktopmiddle {
@@ -90,7 +90,7 @@
   }
 
   &-faq {
-    @include on-desktoplittle() {
+    @include on-desktoplittle {
       margin: 15px 15px 0 0;
     }
     @include on-desktopmiddle {

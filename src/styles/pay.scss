@@ -1,7 +1,9 @@
-.buy-pay__form {
-  display: block;
-  color: #b0b0b0;
-}
+// .buy-pay__form {
+//   display: block;
+//   font-size: 14px;
+//   line-height: 130%;
+//   color: $main-text-color;
+// }
 
 .buy-pay__form-date,
 .buy-pay__form-cvv {
@@ -15,7 +17,7 @@
     grid-column: 2/-2;
     margin-bottom: 35px;
   }
-  @include on-desktoplittle() {
+  @include on-desktoplittle {
     grid-column: 2/-1;
   }
 
@@ -25,11 +27,11 @@
   }
 }
 
-.buy-pay__form {
-  font-size: 14px;
-  line-height: 130%;
-  color: $main-text-color;
-}
+// .buy-pay__form {
+//   font-size: 14px;
+//   line-height: 130%;
+//   color: $main-text-color;
+// }
 
 .card-number-group {
   display: flex;
@@ -64,10 +66,14 @@
 }
 
 .buy-pay__form {
+  display: block;
+  font-size: 14px;
+  line-height: 130%;
+  color: $main-text-color;
   transition: color 0.3s ease;
   margin-bottom: 30px;
 
-  @include on-desktoplittle() {
+  @include on-desktoplittle {
     margin-bottom: 38px;
   }
   @include on-desktopmiddle {
@@ -96,20 +102,28 @@
 }
 
 /* Подсвечиваем label для card-number */
-.payment-form__group:has(.card-number-group .payment-form__input:focus-visible) .buy-pay__form {
+.payment-form__group:has(.card-number-group .payment-form__input:focus-visible)
+  .buy-pay__form {
   color: $main-title-color-accent;
 }
 
 /* Подсвечиваем label только если его for соответствует id сфокусированного input */
-.payment-form__group label.buy-pay__form[for="card-holder"]:has(+ .payment-form__input#card-holder:focus-visible) {
+.payment-form__group
+  label.card-holder-label:has(
+    + .payment-form__input.card-holder-input:focus-visible
+  ) {
   color: $main-title-color-accent;
 }
 
-.payment-form__group label.buy-pay__form[for="expiry-date"]:has(+ .payment-form__input#expiry-date:focus-visible) {
+.payment-form__group
+  label.expiry-date-label:has(
+    + .payment-form__input.expiry-date-input:focus-visible
+  ) {
   color: $main-title-color-accent;
 }
 
-.payment-form__group label.buy-pay__form[for="cvv"]:has(+ .payment-form__input#cvv:focus-visible) {
+.payment-form__group
+  label.cvv-label:has(+ .payment-form__input.cvv-input:focus-visible) {
   color: $main-title-color-accent;
 }
 
@@ -129,7 +143,7 @@
     margin-right: 22px;
   }
 
-  @include on-desktoplittle() {
+  @include on-desktoplittle {
     margin-right: 11px;
   }
 }
@@ -162,7 +176,7 @@
     column-gap: 20px;
   }
 
-  @include on-desktoplittle() {
+  @include on-desktoplittle {
     width: 430px;
     position: absolute;
     right: 21%;
@@ -174,12 +188,13 @@
     right: 22%;
   }
 }
+
 .buy__button-pay {
   @include on-tablet {
     margin: 45px 0 0;
   }
 
-  @include on-desktoplittle() {
+  @include on-desktoplittle {
     margin-top: 20px;
     margin-left: -5px;
   }
