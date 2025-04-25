@@ -1125,3 +1125,77 @@ document.addEventListener('DOMContentLoaded', () => {
   updateAboutSlider();
   startAboutAutoSlide();
 });
+
+//tech
+// document.addEventListener('DOMContentLoaded', () => {
+//   const section = document.querySelector('.tech-specs');
+//   const lines = document.querySelectorAll('.tech-specs__line');
+//   const contents = document.querySelectorAll('.tech-specs__content');
+
+//   const observer = new IntersectionObserver(
+//     (entries) => {
+//       entries.forEach((entry) => {
+//         if (entry.isIntersecting) {
+//           lines.forEach((line) => (line.style.animationPlayState = 'running'));
+//           contents.forEach(
+//             (content) => (content.style.animationPlayState = 'running'),
+//           );
+//           observer.unobserve(section);
+//         }
+//       });
+//     },
+//     { threshold: 0.5 },
+//   );
+
+//   observer.observe(section);
+// });
+
+function updateSVG() {
+  const svg = document.querySelector('.tech-specs__line--batteries');
+  // const svgConnect = document.querySelector('.tech-specs__line--connection');
+
+  const path = document.querySelector('.line-path');
+  const pathConnect = document.querySelector('.path-connect');
+
+  const startCircle = document.querySelector('.start-circle');
+
+  const endCircle = document.querySelector('.end-circle');
+  const endCircleConnect = document.querySelector('.end-circle-connect');
+
+  const width = window.innerWidth;
+
+  if (width >= 1920) {
+    // Для 1920px
+    svg.setAttribute('width', '750');
+    // svg.setAttribute('height', '525');
+    // svg.setAttribute('viewBox', '-300 0 600 450');
+    path.setAttribute('d', 'M7.5,15 V215 H-285');
+    pathConnect.setAttribute('d', 'M0,10 H100 V-70 H180');
+
+    startCircle.setAttribute('cx', '8');
+    startCircle.setAttribute('cy', '12');
+    // startCircle.setAttribute('r', '4.5');
+    endCircle.setAttribute('cx', '-280');
+    endCircleConnect.setAttribute('cx', '180');
+    // endCircle.setAttribute('cy', '322.5');
+    // endCircle.setAttribute('r', '4.5');
+  } else {
+    // Для 1280px (или других разрешений)
+    // svg.setAttribute('width', '750');
+    // svg.setAttribute('height', '350');
+    // svg.setAttribute('viewBox', '-200 0 400 300');
+    path.setAttribute('d', 'M5,10 V215 H-185');
+    pathConnect.setAttribute('d', 'M0,10 H40 V-70 H95');
+    startCircle.setAttribute('cx', '5');
+    startCircle.setAttribute('cy', '10');
+    // startCircle.setAttribute('r', '3');
+    endCircle.setAttribute('cx', '-180');
+    endCircleConnect.setAttribute('cx', '95');
+    // endCircle.setAttribute('cy', '215');
+    // endCircle.setAttribute('r', '3');
+  }
+}
+
+// Выполнять при загрузке страницы и изменении размера окна
+window.addEventListener('resize', updateSVG);
+window.addEventListener('load', updateSVG);
