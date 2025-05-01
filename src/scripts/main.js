@@ -365,47 +365,6 @@ document.addEventListener('DOMContentLoaded', () => {
   updatePurchaseButtonState();
 });
 
-//кнопка видео
-// const playButton = document.querySelector('.play-button');
-// const closeButton = document.querySelector('.aside--close-video');
-// const videoFrame = document.getElementById('vrVideo');
-// const headerVideo = document.querySelector('.header__video');
-
-// // Переменная для хранения плеера YouTube
-// let player;
-
-// // Функция, которая вызывается, когда API YouTube готов
-// function onYouTubeIframeAPIReady() {
-//   player = new YT.Player('vrVideo', {
-//     events: {
-//       onReady: onPlayerReady,
-//     },
-//   });
-// }
-
-// // Функция, которая вызывается, когда плеер готов
-// function onPlayerReady(event) {
-//   // Плеер готов, теперь можно управлять видео
-//   playButton.addEventListener('click', () => {
-//     videoFrame.style.display = 'block'; // Показываем видео
-//     closeButton.style.display = 'block'; // Показываем кнопку закрытия
-//     headerVideo.classList.add('header__video--active'); // Добавляем класс для стилей
-//     player.playVideo(); // Запускаем воспроизведение
-//     playButton.style.display = 'none'; // Скрываем кнопку
-//   });
-
-//   // Обработчик для кнопки закрытия
-//   closeButton.addEventListener('click', (e) => {
-//     e.preventDefault(); // Предотвращаем переход по ссылке
-//     player.stopVideo(); // Останавливаем видео
-//     videoFrame.style.display = 'none'; // Скрываем видео
-//     closeButton.style.display = 'none'; // Скрываем кнопку закрытия
-//     // mainContent.style.display = 'block'; // Показываем содержимое главной страницы
-//     playButton.style.display = 'block'; // Показываем кнопку воспроизведения
-//     headerVideo.classList.remove('header__video--active'); // Убираем класс
-//   });
-// }
-
 // Управление шагами и модальными окнами
 document.addEventListener('DOMContentLoaded', () => {
   const menu = document.getElementById('menu');
@@ -609,133 +568,133 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 //lang-switcher
-document.addEventListener('DOMContentLoaded', () => {
-  const langSwitcher = document.querySelector('.lang-switcher');
-  const currentLangSpan = langSwitcher.querySelector(
-    '.lang-switcher__current span',
-  );
-  const langLinks = langSwitcher.querySelectorAll('.lang-switcher__dropdown a');
-  const langDropdown = langSwitcher.querySelector('.lang-switcher__dropdown');
+// Выбираем все ссылки языков (для маленьких и больших экранов)
+const langLinks = document.querySelectorAll('.lang__link');
+const langSwitcher = document.querySelector('.lang-switcher');
+const currentLangSpan = langSwitcher.querySelector(
+  '.lang-switcher__current span',
+);
 
-  // Объект с переводами для всех языков
-  const translations = {
-    en: {
-      title:
-        'The New Start of <br><span class="header__title--color">VR LOCOMOTION</span>',
-      description:
-        'Discover the most comprehensive VR Locomotion system, and unlock infinite motion in any games on any platforms!',
-      buyButton: 'Buy Now',
-    },
-    ar: {
-      title:
-        'بداية جديدة لـ <br><span class="header__title--color">الحركة في الواقع الافتراضي</span>',
-      description:
-        'اكتشف نظام الحركة الأكثر شمولاً في الواقع الافتراضي، واطلق العنان للحركة اللانهائية في أي ألعاب على أي منصة!',
-      buyButton: 'اشترِ الآن',
-    },
-    'zh-s': {
-      title: 'VR运动的 <br><span class="header__title--color">新起点</span>',
-      description:
-        '发现最全面的VR运动系统，解锁任何平台上任何游戏中的无限运动！',
-      buyButton: '立即购买',
-    },
-    'zh-t': {
-      title: 'VR運動的 <br><span class="header__title--color">新起點</span>',
-      description:
-        '發現最全面的VR運動系統，解鎖任何平台上任何遊戲中的無限運動！',
-      buyButton: '立即購買',
-    },
-    fr: {
-      title:
-        'Le nouveau départ de la <br><span class="header__title--color">locomotion VR</span>',
-      description:
-        'Découvrez le système de locomotion VR le plus complet et débloquez un mouvement infini dans tous les jeux sur toutes les plateformes !',
-      buyButton: 'Acheter maintenant',
-    },
-    de: {
-      title:
-        'Der Neue Start der <br><span class="header__title--color">VR-Lokomotion</span>',
-      description:
-        'Entdecken Sie das umfassendste VR-Lokomotionssystem und schalten Sie unendliche Bewegung in allen Spielen auf allen Plattформах frei!',
-      buyButton: 'Jetzt Kaufen',
-    },
-    it: {
-      title:
-        'Il nuovo inizio della <br><span class="header__title--color">locomozione VR</span>',
-      description:
-        'Scopri il sistema di locomozione VR più completo e sblocca un movimento infinito in qualsiasi gioco su qualsiasi piattaforma!',
-      buyButton: 'Acquista ora',
-    },
-    pl: {
-      title:
-        'Nowy początek <br><span class="header__title--color">lokomocji VR</span>',
-      description:
-        'Odkryj najbardziej wszechstronny system lokomocji VR i odblokuj nieskończony ruch w dowolnych grach na dowolnych platformach!',
-      buyButton: 'Kup teraz',
-    },
-    ru: {
-      title:
-        'Новый старт <br><span class="header__title--color">VR-локомоции</span>',
-      description:
-        'Откройте самую полную систему VR-локомоции и разблокируйте бесконечное движение в любых играх на любых платформах!',
-      buyButton: 'Купить сейчас',
-    },
-    uk: {
-      title:
-        'Новий Початок <br><span class="header__title--color">VR Локомоції</span>',
-      description:
-        'Відкрийте найповнішу систему VR локомоції та розблокуйте безмежний рух у будь-яких іграх на будь-яких платформах!',
-      buyButton: 'Купити Зараз',
-    },
-  };
+// Объект с переводами для всех языков
+const translations = {
+  en: {
+    title:
+      'The New Start of <br><span class="header__title--color">VR LOCOMOTION</span>',
+    description:
+      'Discover the most comprehensive VR Locomotion system, and unlock infinite motion in any games on any platforms!',
+    buyButton: 'Buy Now',
+  },
+  ar: {
+    title:
+      'بداية جديدة لـ <br><span class="header__title--color">الحركة في الواقع الافتراضي</span>',
+    description:
+      'اكتشف نظام الحركة الأكثر شمولاً في الواقع الافتراضي، واطلق العنان للحركة اللانهائية في أي ألعاب على أي منصة!',
+    buyButton: 'اشترِ الآن',
+  },
+  'zh-s': {
+    title: 'VR运动的 <br><span class="header__title--color">新起点</span>',
+    description: '发现最全面的VR运动系统，解锁任何平台上任何游戏中的无限运动！',
+    buyButton: '立即购买',
+  },
+  'zh-t': {
+    title: 'VR運動的 <br><span class="header__title--color">新起點</span>',
+    description: '發現最全面的VR運動系統，解鎖任何平台上任何遊戲中的無限運動！',
+    buyButton: '立即購買',
+  },
+  fr: {
+    title:
+      'Le nouveau départ de la <br><span class="header__title--color">locomotion VR</span>',
+    description:
+      'Découvrez le système de locomotion VR le plus complet et débloquez un mouvement infini dans tous les jeux sur toutes les plateformes !',
+    buyButton: 'Acheter maintenant',
+  },
+  de: {
+    title:
+      'Der Neue Start der <br><span class="header__title--color">VR-Lokomotion</span>',
+    description:
+      'Entdecken Sie das umfassendste VR-Lokomotionssystem und schalten Sie unendliche Bewegung in allen Spielen auf allen Plattформах frei!',
+    buyButton: 'Jetzt Kaufen',
+  },
+  it: {
+    title:
+      'Il nuovo inizio della <br><span class="header__title--color">locomozione VR</span>',
+    description:
+      'Scopri il sistema di locomozione VR più completo e sblocca un movimento infinito in qualsiasi gioco su qualsiasi piattaforma!',
+    buyButton: 'Acquista ora',
+  },
+  pl: {
+    title:
+      'Nowy początek <br><span class="header__title--color">lokomocji VR</span>',
+    description:
+      'Odkryj najbardziej wszechstronny system lokomocji VR i odblokuj nieskończony ruch w dowolnych grach na dowolnych platformach!',
+    buyButton: 'Kup teraz',
+  },
+  ru: {
+    title:
+      'Новый старт <br><span class="header__title--color">VR-локомоции</span>',
+    description:
+      'Откройте самую полную систему VR-локомоции и разблокируйте бесконечное движение в любых играх на любых платформах!',
+    buyButton: 'Купить сейчас',
+  },
+  uk: {
+    title:
+      'Новий Початок <br><span class="header__title--color">VR Локомоції</span>',
+    description:
+      'Відкрийте найповнішу систему VR локомоції та розблокуйте безмежний рух у будь-яких іграх на будь-яких платформах!',
+    buyButton: 'Купити Зараз',
+  },
+};
 
-  // Функция для форматирования текста (первая буква заглавная, остальные строчные)
-  function formatLanguageDisplay(lang) {
-    return lang.charAt(0).toUpperCase() + lang.slice(1).toLowerCase(); // Например, "en" → "En", "zh-s" → "Zh-s"
-  }
+// Функция для форматирования текста (первая буква заглавная, остальные строчные)
+function formatLanguageDisplay(lang) {
+  return lang.charAt(0).toUpperCase() + lang.slice(1).toLowerCase(); // Например, "en" → "En", "zh-s" → "Zh-s"
+}
 
-  // Функция для установки языка
-  function setLanguage(lang) {
-    localStorage.setItem('language', lang); // Сохраняем выбранный язык
-    currentLangSpan.textContent = formatLanguageDisplay(lang); // Обновляем отображение
+// Функция для установки языка
+function setLanguage(lang) {
+  localStorage.setItem('language', lang); // Сохраняем выбранный язык
+  currentLangSpan.textContent = formatLanguageDisplay(lang); // Обновляем отображение
 
-    // Обновляем текст на странице
-    document.querySelector('.header__title').innerHTML =
-      translations[lang].title; // Используем innerHTML вместо textContent
-    document.querySelector('.header__text').textContent =
-      translations[lang].description;
-    document.querySelector('.main-button__link').textContent =
-      translations[lang].buyButton;
+  // Обновляем текст на странице
+  document.querySelector('.header__title').innerHTML = translations[lang].title; // Используем innerHTML вместо textContent
+  document.querySelector('.header__text').textContent =
+    translations[lang].description;
+  document.querySelector('.main-button__link').textContent =
+    translations[lang].buyButton;
 
-    // Закрываем меню после выбора языка
-    langSwitcher.classList.remove('is-open');
-  }
+  // Закрываем меню после выбора языка
+  langSwitcher.classList.remove('is-open');
+}
 
-  // Устанавливаем язык при загрузке страницы
-  const savedLang = localStorage.getItem('language') || 'en';
-  setLanguage(savedLang);
+// Устанавливаем язык при загрузке страницы
+const savedLang = localStorage.getItem('language') || 'en';
+setLanguage(savedLang);
 
-  // Обработчик клика для открытия/закрытия меню
-  langSwitcher
-    .querySelector('.lang-switcher__current')
-    .addEventListener('click', () => {
-      langSwitcher.classList.toggle('is-open');
-    });
-
-  // Закрытие меню при клике вне его
-  document.addEventListener('click', (e) => {
-    if (!langSwitcher.contains(e.target)) {
-      langSwitcher.classList.remove('is-open');
-    }
+// Обработчик клика для открытия/закрытия меню
+langSwitcher
+  .querySelector('.lang-switcher__current')
+  .addEventListener('click', () => {
+    langSwitcher.classList.toggle('is-open');
   });
 
-  // Обработчик клика по языкам
-  langLinks.forEach((link) => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      const selectedLang = link.getAttribute('data-lang');
-      setLanguage(selectedLang);
-    });
+// langLinks.querySelector('.lang__link').addEventListener('click', () => {
+//   window.location.href = 'http://localhost:8080/';
+// });
+
+// Закрытие меню при клике вне его
+document.addEventListener('click', (e) => {
+  if (!langSwitcher.contains(e.target)) {
+    langSwitcher.classList.remove('is-open');
+  }
+});
+
+// Обработчик клика по языкам
+langLinks.forEach((link) => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const selectedLang = link.getAttribute('data-lang');
+    setLanguage(selectedLang);
+    window.location.href = 'http://localhost:8080/';
   });
 });
 
