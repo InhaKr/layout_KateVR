@@ -43,12 +43,3 @@
 .container {
   @include content-padding;
 }
-
-// @mixin page-grid {
-//   --columns: 2;
-
-//   display: grid;
-//   grid-template-columns: repeat(var(--columns), 1fr);
-//   column-gap: 20px;
-//   grid-template-rows: auto;
-// }

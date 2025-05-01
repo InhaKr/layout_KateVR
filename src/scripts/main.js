@@ -9,15 +9,40 @@ document.addEventListener('DOMContentLoaded', () => {
   const citiesByCountry = {
     ukraine: [
       { value: 'kyiv', text: 'Kyiv' },
-      { value: 'lviv', text: 'Lviv' },
+      { value: 'Zaporizhia', text: 'Zaporizhia' },
+      { value: 'Kharkiv', text: 'Kharkiv' },
+      { value: 'Odessa', text: 'Odessa' },
+      { value: 'Dnipro', text: 'Dnipro' },
+      { value: 'Donetsk', text: 'Donetsk' },
+      { value: 'Mykolaiv', text: 'Mykolaiv' },
     ],
-    poland: [
-      { value: 'warsaw', text: 'Warsaw' },
-      { value: 'krakow', text: 'Krakow' },
+    russia: [
+      { value: 'moskov', text: 'Moskov' },
+      { value: 'maykop', text: 'Maykop' },
     ],
-    germany: [
-      { value: 'berlin', text: 'Berlin' },
-      { value: 'munich', text: 'Munich' },
+    france: [
+      { value: 'parish', text: 'Parish' },
+      { value: 'marsel', text: 'Marsel' },
+    ],
+    spain: [
+      { value: 'barselona', text: 'Barselona' },
+      { value: 'kapella', text: 'Kapella' },
+    ],
+    usa: [
+      { value: 'mayami', text: 'Mayami' },
+      { value: 'vashington', text: 'Vashington' },
+    ],
+    china: [
+      { value: 'pekin', text: 'Pekin' },
+      { value: 'shanhay', text: 'Shanhay' },
+    ],
+    italy: [
+      { value: 'milan', text: 'Milan' },
+      { value: 'palermo', text: 'Palermo' },
+    ],
+    turkey: [
+      { value: 'stambul', text: 'Stambul' },
+      { value: 'ankara', text: 'Ankara' },
     ],
   };
 
@@ -517,9 +542,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // Слушаем изменение хэша
   window.addEventListener('hashchange', () => {
     console.log('Хэш изменился:', window.location.hash);
-    if (isClosing) return; // Не реагируем на изменение хэша при закрытии
+    if (isClosing) return;
 
     const hash = window.location.hash.replace('#', '');
+    const navigationHashes = ['about', 'tech', 'benefits', 'contact'];
+
     if (hash === 'buy') {
       setActiveStep(1);
     } else if (hash === 'step-2') {
@@ -534,8 +561,7 @@ document.addEventListener('DOMContentLoaded', () => {
       openAsideModal('faq');
     } else if (hash === 'lang') {
       openAsideModal('lang');
-    } else {
-      // Если хэш пустой, закрываем модальное окно
+    } else if (!navigationHashes.includes(hash)) {
       closeModal();
     }
   });
@@ -1157,7 +1183,7 @@ function updateSVG() {
   const path = document.querySelector('.line-path');
   const pathConnect = document.querySelector('.path-connect');
 
-  const startCircle = document.querySelector('.start-circle');
+  // const startCircle = document.querySelector('.start-circle');
 
   const endCircle = document.querySelector('.end-circle');
   const endCircleConnect = document.querySelector('.end-circle-connect');
@@ -1172,8 +1198,8 @@ function updateSVG() {
     path.setAttribute('d', 'M7.5,15 V215 H-285');
     pathConnect.setAttribute('d', 'M0,10 H100 V-70 H180');
 
-    startCircle.setAttribute('cx', '8');
-    startCircle.setAttribute('cy', '12');
+    // startCircle.setAttribute('cx', '8');
+    // startCircle.setAttribute('cy', '12');
     // startCircle.setAttribute('r', '4.5');
     endCircle.setAttribute('cx', '-280');
     endCircleConnect.setAttribute('cx', '180');
@@ -1186,8 +1212,6 @@ function updateSVG() {
     // svg.setAttribute('viewBox', '-200 0 400 300');
     path.setAttribute('d', 'M5,10 V215 H-185');
     pathConnect.setAttribute('d', 'M0,10 H40 V-70 H95');
-    startCircle.setAttribute('cx', '5');
-    startCircle.setAttribute('cy', '10');
     // startCircle.setAttribute('r', '3');
     endCircle.setAttribute('cx', '-180');
     endCircleConnect.setAttribute('cx', '95');
@@ -1199,3 +1223,202 @@ function updateSVG() {
 // Выполнять при загрузке страницы и изменении размера окна
 window.addEventListener('resize', updateSVG);
 window.addEventListener('load', updateSVG);
+// startCircle.setAttribute('cx', '5');
+// startCircle.setAttribute('cy', '10');
+
+// форма contact
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Находим форму внутри section.contact
+  const form = document.querySelector('section.contact .contact-form');
+  const emailInput = document.querySelector('section.contact #email');
+  const nameInput = document.querySelector('section.contact #name');
+  const phoneInput = document.querySelector('section.contact #phone');
+
+  // Проверяем, найдены ли элементы
+  if (!form) {
+    console.error(
+      'Форма с классом .contact-form не найдена внутри section.contact!',
+    );
+    return;
+  }
+  if (!emailInput) {
+    console.error('Поле email с id="email" не найдено внутри section.contact!');
+    return;
+  }
+  if (!nameInput) {
+    console.error('Поле name с id="name" не найдено внутри section.contact!');
+    return;
+  }
+  if (!phoneInput) {
+    console.error('Поле phone с id="phone" не найдено внутри section.contact!');
+    return;
+  } else {
+    console.log('Элементы формы найдены корректно');
+  }
+
+  // Регулярное выражение для проверки email
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+  // Регулярное выражение для проверки телефона (+ и ровно 12 цифр)
+  const phoneRegex = /^\+[0-9]{12}$/;
+
+  // Функция для проверки формата email
+  const validateEmail = (email) => emailRegex.test(email);
+
+  // Функция для проверки формата телефона
+  const validatePhone = (phone) => phoneRegex.test(phone);
+
+  // Функция для проверки заполненности имени
+  const validateName = (name) => name.trim().length > 0;
+
+  // Функция для переключения состояния ошибки
+  const toggleError = (input, hasError) => {
+    const contactGroup = input.closest('.contact-group');
+    if (!contactGroup) {
+      console.error('Контейнер .contact-group не найден для поля:', input);
+      return;
+    }
+    if (hasError) {
+      console.log('Добавляем класс contact-group--error для поля:', input);
+      contactGroup.classList.add('contact-group--error');
+    } else {
+      console.log('Убираем класс contact-group--error для поля:', input);
+      contactGroup.classList.remove('contact-group--error');
+    }
+  };
+
+  // Валидация имени при потере фокуса
+  nameInput.addEventListener('blur', () => {
+    const isValidName = validateName(nameInput.value);
+    console.log('Name:', nameInput.value, 'Валиден:', isValidName);
+    toggleError(nameInput, !isValidName);
+  });
+
+  // Валидация email при потере фокуса
+  emailInput.addEventListener('blur', () => {
+    const isValidEmail = validateEmail(emailInput.value);
+    console.log('Email:', emailInput.value, 'Валиден:', isValidEmail);
+    toggleError(emailInput, !isValidEmail);
+  });
+
+  // Ограничение ввода для телефона в реальном времени (без валидации)
+  phoneInput.addEventListener('input', (e) => {
+    let value = phoneInput.value;
+
+    // Удаляем все, кроме символа + и цифр
+    value = value.replace(/[^0-9+]/g, '');
+
+    // Если символ + уже есть, не даем добавить еще один
+    if (value.indexOf('+') !== 0) {
+      value = '+' + value.replace(/\+/g, '');
+    } else {
+      value = value.replace(/\+/g, (match, index) => (index === 0 ? '+' : ''));
+    }
+
+    // Ограничиваем ввод: максимум 13 символов (+ и 12 цифр)
+    if (value.length > 13) {
+      value = value.slice(0, 13);
+    }
+
+    // Устанавливаем новое значение поля
+    phoneInput.value = value;
+  });
+
+  // Валидация телефона при потере фокуса
+  phoneInput.addEventListener('blur', () => {
+    const isValidPhone = validatePhone(phoneInput.value);
+    console.log('Phone:', phoneInput.value, 'Валиден:', isValidPhone);
+    toggleError(phoneInput, !isValidPhone);
+  });
+
+  // Валидация при отправке формы
+  form.addEventListener('submit', (e) => {
+    e.preventDefault(); // Предотвращаем отправку формы
+
+    let hasError = false;
+
+    // Проверка имени
+    const isValidName = validateName(nameInput.value);
+    if (!isValidName) {
+      toggleError(nameInput, true);
+      hasError = true;
+    } else {
+      toggleError(nameInput, false);
+    }
+
+    // Проверка email
+    const isValidEmail = validateEmail(emailInput.value);
+    if (!isValidEmail) {
+      toggleError(emailInput, true);
+      hasError = true;
+    } else {
+      toggleError(emailInput, false);
+    }
+
+    // Проверка телефона
+    const isValidPhone = validatePhone(phoneInput.value);
+    if (!isValidPhone) {
+      toggleError(phoneInput, true);
+      hasError = true;
+    } else {
+      toggleError(phoneInput, false);
+    }
+
+    if (!hasError) {
+      console.log('Форма валидна, готова к отправке!');
+      console.log('Форма отправлена');
+      form.reset();
+    }
+  });
+});
+
+//кнопка back-to-up
+document.addEventListener('DOMContentLoaded', () => {
+  const backToTopButton = document.querySelector('.back-to-top');
+  const header = document.querySelector('#header');
+
+  if (!backToTopButton) {
+    console.error('Кнопка back-to-top не найдена!');
+    return;
+  }
+  if (!header) {
+    console.error('Хедер с id="header" не найден!');
+    return;
+  } else {
+    console.log('Элементы back-to-top and header найдены корректно');
+  }
+
+  // Показ/скрытие кнопки при прокрутке
+  window.addEventListener('scroll', () => {
+    const headerHeight = header.offsetHeight; // Высота хедера
+    const scrollPosition = window.scrollY; // Текущая позиция прокрутки
+
+    if (scrollPosition > headerHeight) {
+      backToTopButton.classList.add('visible'); // Показываем кнопку
+    } else {
+      backToTopButton.classList.remove('visible'); // Скрываем кнопку
+    }
+  });
+
+  // Обработчик для кнопки "Вернуться наверх"
+  backToTopButton.addEventListener('click', () => {
+    header.scrollIntoView({ behavior: 'smooth' }); // Плавная прокрутка к хедеру
+  });
+});
+
+footerLinks.forEach((link) => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const targetId = link.getAttribute('href');
+    console.log('Target ID:', targetId); // Должно вывести "#tech"
+    const targetElement = document.querySelector(targetId);
+    console.log('Target Element:', targetElement); // Должно вывести элемент <section id="tech">
+
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      console.error(`Элемент с ID ${targetId} не найден!`);
+    }
+  });
+});

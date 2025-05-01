@@ -6,7 +6,7 @@
     margin-bottom: 5px;
 
     &-text {
-      margin-bottom: 192px;
+      margin-bottom: 187px;
 
       @include on-tablet {
         grid-column: 4 / 4;
@@ -48,7 +48,7 @@
   &__img {
     width: 280px;
     height: 190px;
-    margin-bottom: 35px;
+    margin-bottom: 38px;
 
     @include on-tablet {
       grid-column: span 3;
@@ -89,6 +89,10 @@
     background: url("../icons/menu-close.svg") no-repeat center;
     background-size: contain;
     text-decoration: none;
+
+    &:hover {
+      background-image: url(../icons/menu-closeBlue.svg);
+    }
 
     @include on-tablet {
       top: -15px;
@@ -136,9 +140,17 @@
     cursor: pointer;
 
     /* На мобильных (ширина < 768px) */
-    bottom: 60px; /* Отступ снизу от текста */
+    bottom: 65px; /* Отступ снизу от текста */
     left: 40%;
     transform: translateX(-50%); /* Центрируем по горизонтали */
+
+    &:hover {
+      background-color: transparent;
+      transform: scale(1.05) translate(-28%, 78%);
+      transition:
+        transform 0.5s ease,
+        color 0.5s ease;
+    }
 
     @include on-tablet {
       width: 280px;

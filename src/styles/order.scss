@@ -83,6 +83,7 @@
 
     @include on-desktoplittle {
       position: absolute;
+      border-bottom: none;
       width: 57%;
       left: 23%;
       top: 65px;
@@ -120,7 +121,7 @@
 
 .step.active::after {
   @include on-desktoplittle {
-    content: '';
+    content: "";
 
     position: absolute;
     bottom: 10px;

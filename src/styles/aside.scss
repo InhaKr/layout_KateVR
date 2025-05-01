@@ -47,9 +47,15 @@
         top: 15px;
         right: 15px;
       }
+
+      &:hover {
+        background-image: url(../icons/menu-closeBlue.svg);
+      }
     }
 
-    @include hover(transform, scale(1.2));
+    &:hover {
+      background-image: url(../icons/menu-closeBlue.svg);
+    }
 
     @include on-tablet {
       margin: 35px 0 20px;

@@ -2,11 +2,11 @@
   padding-block: 80px;
 
   @include on-desktoplittle {
-    padding-block: 180px;
+    padding-block: 130px;
   }
 
   @include on-desktopmiddle {
-    padding-block: 320px;
+    padding-block: 220px;
   }
 }
 
@@ -21,10 +21,12 @@
     display: inline-block;
     margin-bottom: 145px;
     margin-left: 68%;
+    padding-top: 50px;
   }
 
   @include on-desktopmiddle {
     margin-left: 69%;
+    padding-top: 110px;
   }
 }
 
@@ -34,8 +36,6 @@
   margin: 0 auto;
   overflow: visible;
   height: auto;
-  // align-items: center;
-  // height: 600px;
   grid-template-columns: repeat(2, 1fr);
   display: grid;
   justify-items: center;
@@ -79,7 +79,7 @@
   border-radius: 50%;
   width: 34px;
   height: 34px;
-  font-family: "Arial", sans-serif;
+  font-family: Arial, sans-serif;
   font-size: 35px;
   color: $main-title-color;
   background-color: $main-title-color-accent;
@@ -208,25 +208,18 @@
 /* Линии */
 .tech-specs__line {
   position: absolute;
-  // height: 1px;
-  // background: $main-title-color-accent;
-  // width: 0; /* Начальная ширина линии */
 }
 
 /* Линии для каждого блока */
 .tech-specs__line--sensor {
-  // width: 400px;
-  // height: 100px;
   position: absolute;
-  top: 0px;
+  top: 0;
   left: 85px;
 }
 
 .tech-specs__line--batteries {
-  // width: 400px;
-  // height: 100px;
   position: absolute;
-  top: 0px;
+  top: 0;
   left: -250px;
 
   @include on-desktopmiddle {
@@ -239,40 +232,42 @@
   top: -140px;
   left: 25px;
 }
+
 /* Стили для кружка */
 .tech-specs__line--sensor circle,
 .tech-specs__line--batteries circle,
 .tech-specs__line--connection circle {
   opacity: 0;
-  animation: fadeIn 0.5s forwards 2s infinite; /* Синхронизируем с началом анимации линии */
+  animation: fade-in 0.5s forwards 2s infinite; /* Синхронизируем с началом анимации линии */
 }
 
 /* Анимация конечного кружка для CONNECTION */
 .tech-specs__line--connection .end-circle {
-  animation: fadeIn 0.5s forwards 3s infinite; /* Появляется после линии (1s анимация + 2s задержка) */
+  animation: fade-in 0.5s forwards 3s infinite; /* Появляется после линии (1s анимация + 2s задержка) */
 }
 
 /* Анимация SVG линии */
 .tech-specs__line--sensor path {
   stroke-dasharray: 690; /* Длина пути (примерно H350 + V90) */
   stroke-dashoffset: 690; /* Начальное смещение для анимации */
-  animation: drawLine 5s forwards 5s infinite;
+  animation: draw-line 5s forwards 5s infinite;
 }
 
 .tech-specs__line--batteries path {
   stroke-dasharray: 385; /* Длина пути (примерно H350 + V90) */
   stroke-dashoffset: 385; /* Начальное смещение для анимации */
-  animation: drawLine 5s forwards 5s infinite;
+  animation: draw-line 5s forwards 5s infinite;
 
   @include on-desktopmiddle {
     stroke-dasharray: 500; /* Длина пути (примерно H350 + V90) */
     stroke-dashoffset: 500; /* Начальное смещение для анимации */
   }
 }
+
 .tech-specs__line--connection path {
   stroke-dasharray: 190; /* Длина пути (примерно H350 + V90) */
   stroke-dashoffset: 190; /* Начальное смещение для анимации */
-  animation: drawLine 5s forwards 5s infinite;
+  animation: draw-line 5s forwards 5s infinite;
 
   @include on-desktopmiddle {
     stroke-dasharray: 270; /* Длина пути (примерно H350 + V90) */
@@ -280,14 +275,14 @@
   }
 }
 
-@keyframes drawLine {
+@keyframes draw-line {
   to {
     stroke-dashoffset: 0; /* Линия полностью нарисована */
   }
 }
 
 /* Анимация появления обводки кружка */
-@keyframes drawCircleStroke {
+@keyframes draw-circle-stroke {
   to {
     stroke-dashoffset: 0;
   }
@@ -295,19 +290,19 @@
 
 /* Показ текста после анимации линии */
 .tech-specs__block--sensor .tech-specs__content {
-  animation: fadeIn 0.5s forwards;
+  animation: fade-in 0.5s forwards;
 }
 
 .tech-specs__block--batteries .tech-specs__content {
-  animation: fadeIn 0.5s forwards;
+  animation: fade-in 0.5s forwards;
 }
 
 .tech-specs__block--connection .tech-specs__content {
-  animation: fadeIn 0.5s forwards;
+  animation: fade-in 0.5s forwards;
 }
 
 /* Анимация появления текста */
-@keyframes fadeIn {
+@keyframes fade-in {
   0% {
     opacity: 0;
   }
