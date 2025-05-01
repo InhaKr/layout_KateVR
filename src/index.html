@@ -925,88 +925,202 @@
         </div>
       </div>
     </aside>
-    <aside class="buy" id="buy">
+
+    <aside
+      class="buy"
+      id="buy"
+    >
       <div class="buy__wrapper">
         <div class="container">
           <div class="buy__top">
-            <a href="#" class="header__logo buy__logo">
-              <img class="header__logo-img" src="icons/logo-small.png" alt="logo"/>
+            <a
+              href="#"
+              class="header__logo buy__logo"
+            >
+              <img
+                class="header__logo-img"
+                src="icons/logo-small.png"
+                alt="logo"
+/>
             </a>
-            <a href="#" class="icon buy__close"></a>
+            <a
+              href="#"
+              class="icon buy__close"
+            ></a>
           </div>
         </div>
+
         <div class="buy__menu">
-          <div class="step active" data-step="1">
-            <a class="buy__menu-item" href="#buy">Place Order</a>
+          <div
+            class="step active"
+            data-step="1"
+          >
+            <a
+              class="buy__menu-item"
+              href="#buy"
+            >
+              Place Order
+            </a>
           </div>
-          <div class="step" data-step="2">
-            <a class="buy__menu-item" href="#step-2">Pay</a>
+
+          <div
+            class="step"
+            data-step="2"
+          >
+            <a
+              class="buy__menu-item"
+              href="#step-2"
+            >
+              Pay
+            </a>
           </div>
-          <div class="step" data-step="3">
-            <a class="buy__menu-item" href="#step-3">Complete</a>
+
+          <div
+            class="step"
+            data-step="3"
+          >
+            <a
+              class="buy__menu-item"
+              href="#step-3"
+            >
+              Complete
+            </a>
           </div>
         </div>
+
         <div class="buy__wrapper-box">
           <div class="buy__img">
-            <img class="buy__img-picture" src="images/image1.png" alt="images product"/>
+            <img
+              class="buy__img-picture"
+              src="images/image1.png"
+              alt="images product"
+/>
           </div>
           <div class="container">
             <div class="price-container">
               <div class="quantity">
                 <label class="quantity__label">Quantity</label>
-                <select class="quantity__select-option" id="quantity-select-step1">
+                <select
+                  class="quantity__select-option"
+                  id="quantity-select-step1"
+                >
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
                   <option value="4">4</option>
+                  <option value="5">5</option>
                 </select>
               </div>
               <div class="price">
                 <label>Price</label>
-                <span class="quantity__select-price" id="price-value-step1">1200$</span>
+                <span
+                  class="quantity__select-price"
+                  id="price-value-step1"
+                >
+                  1200$
+                </span>
               </div>
             </div>
-            <div class="form-container" id="step-1">
-              <form class="buy__order-form" id="order-form">
+
+            <div
+              class="form-container"
+              id="step-1"
+            >
+              <form
+                class="buy__order-form"
+                id="order-form"
+              >
                 <div class="form-group">
-                  <input class="buy__input" type="text" id="first-name" placeholder="First Name*" required/>
+                  <input
+                    class="buy__input"
+                    type="text"
+                    id="first-name"
+                    placeholder="First Name*"
+                    required
+/>
                 </div>
                 <div class="form-group">
-                  <input class="buy__input" type="text" id="last-name" placeholder="Last Name*" required/>
+                  <input
+                    class="buy__input"
+                    type="text"
+                    id="last-name"
+                    placeholder="Last Name*"
+                    required
+/>
                 </div>
                 <div class="form-group">
-                  <input class="buy__input" type="email" id="email" placeholder="Email*" required/>
+                  <input
+                    class="buy__input"
+                    type="email"
+                    id="email"
+                    placeholder="Email*"
+                    required
+/>
                 </div>
                 <div class="form-group">
-                  <input class="buy__input" type="tel" id="phone" placeholder="Phone Number*" required/>
+                  <input
+                    class="buy__input"
+                    type="tel"
+                    id="phone"
+                    placeholder="Phone Number*"
+                    required
+/>
                 </div>
                 <div class="form-group">
                   <label for="country">Country*</label>
-                  <select class="buy__select" id="country" required>
-                    <option class="buy__city" value=" " disabled selected></option>
-                <option value="ukraine">Ukraine</option>
-                    <option value="russia">Russia</option>
-                    <option value="france">France</option>
-                    <option value="spain">Spain</option>
-                    <option value="usa">United States</option>
-                    <option value="china">China</option>
-                    <option value="italy">Italy</option>
-                    <option value="turkey">Turkey</option>
+                  <select
+                    class="buy__select"
+                    id="country"
+                    required
+                  >
+                    <option
+                      class="buy__city"
+                      value=" "
+                      disabled
+                      selected
+                    ></option>
+                    <option value="ukraine">Ukraine</option>
+                    <option value="poland">Poland</option>
+                    <option value="germany">Germany</option>
                   </select>
                 </div>
                 <div class="form-group">
                   <label for="city">City*</label>
-                  <select class="buy__select" id="city" required>
-                    <option value=" " disabled selected></option>
-              </select>
-            </div>
-            <div class="form-group">
-                      <input class="buy__input" type="text" id="address" placeholder="Shipping Address*" required/>
+                  <select
+                    class="buy__select"
+                    id="city"
+                    required
+                  >
+                    <option
+                      value=" "
+                      disabled
+                      selected
+                    ></option>
+                  </select>
+                </div>
+                <div class="form-group">
+                      <input
+                    class="buy__input"
+                    type="text"
+                    id="address"
+                    placeholder="Shipping Address*"
+                    required
+/>
                     </div>
                     <div class="form-group">
-                      <input class="buy__input" type="text" id="address2" placeholder="Shipping Address 2"/>
+                      <input
+                    class="buy__input"
+                    type="text"
+                    id="address2"
+                    placeholder="Shipping Address 2"
+/>
                     </div>
-                    <button class="buy__button" type="submit">Purchase</button>
+                    <button
+                  class="buy__button"
+                  type="submit"
+                >
+                  Purchase
+                </button>
                   </form>
                 </div>
               </div>
