@@ -32,14 +32,15 @@
   /* Стили для выпадающего меню */
   &__dropdown {
     position: absolute;
+    scrollbar-width: thin;
+    scrollbar-color: $main-title-color-accent transparent;
     max-height: 111px;
     text-align: center;
-    width: 65px;
+    max-width: 60px;
     overflow-y: auto;
     top: 100%;
-    left: -10px;
-    background-color: #1a1a1a;
-    border: 1px solid #333;
+    left: -5px;
+    background-color: $background-color;
     border-radius: 4px;
     list-style: none;
     padding: 0;
@@ -52,50 +53,39 @@
       opacity 0.3s ease,
       transform 0.3s ease,
       visibility 0.3s ease;
+
+    & li:last-child {
+      border-bottom: none;
+    }
+
+    & a {
+      display: block;
+      padding: 10px;
+      color: $main-title-color-accent;
+      text-decoration: none;
+      font-size: 16px;
+      transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+    }
+
+    & a:hover {
+      background-color: #00c4cc;
+      color: #1a1a1a;
+    }
+
+    & li:first-child a {
+      color: $main-title-color;
+    }
   }
 
-  &__dropdown li {
-    border-bottom: 1px solid #333;
+  &.is-open .lang-switcher__arrow {
+    transform: rotate(180deg);
   }
 
-  &__dropdown a {
-    display: block;
-    padding: 10px 15px;
-    color: $main-title-color-accent;
-    text-decoration: none;
-    font-size: 16px;
-    transition:
-      background-color 0.2s ease,
-      color 0.2s ease;
+  &.is-open .lang-switcher__dropdown {
+    opacity: 1;
+    transform: translateY(10px);
+    visibility: visible;
   }
-
-  &__dropdown a:hover {
-    background-color: #00c4cc;
-    color: #1a1a1a;
-  }
-}
-
-.lang-switcher.is-open .lang-switcher__arrow {
-  transform: rotate(180deg);
-}
-
-.lang-switcher.is-open .lang-switcher__dropdown {
-  opacity: 1;
-  transform: translateY(5px);
-  visibility: visible;
-}
-
-.lang-switcher__dropdown li:last-child {
-  border-bottom: none;
-}
-
-.lang-switcher__dropdown li:first-child a {
-  color: $main-title-color;
-}
-
-// /* Ползунок
-
-.lang-switcher__dropdown {
-  scrollbar-width: thin;
-  scrollbar-color: $main-title-color-accent $main-title-color-accent;
 }

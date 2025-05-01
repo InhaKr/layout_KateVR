@@ -1,6 +1,47 @@
 .back-to-top {
   display: none;
 
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    background-color: #00c4cc; /* Синяя стрелка по умолчанию */
+    transition: background-color 0.3s ease; /* Плавное изменение цвета */
+  }
+
+  &::before {
+    width: 1px; /* Толщина линии стрелки */
+    height: 12px; /* Длина линии */
+    transform: rotate(45deg); /* Поворот для левой части стрелки */
+    top: 16px; /* Позиционирование */
+    left: 20px; /* Позиционирование */
+  }
+
+  &::after {
+    width: 1px; /* Толщина линии стрелки */
+    height: 12px; /* Длина линии */
+    transform: rotate(-45deg); /* Поворот для правой части стрелки */
+    top: 16px; /* Позиционирование */
+    left: 27px; /* Позиционирование */
+  }
+
+  /* При наведении на кнопку */
+  &:hover {
+    background-color: #00c4cc; /* Синий фон */
+    border-color: #00c4cc; /* Синяя окантовка */
+  }
+
+  /* При наведении стрелка становится белой */
+  &:hover::before,
+  &:hover::after {
+    background-color: white; /* Белая стрелка */
+  }
+
   @include on-tablet {
     position: fixed; /* Фиксированная позиция */
     bottom: 240px;
@@ -35,44 +76,5 @@
 }
 
 /* Показываем кнопку при прокрутке */
-.back-to-top.visible {
-  opacity: 1;
-  visibility: visible;
-}
 
 /* Стрелка вверх, нарисованная с помощью псевдоэлементов */
-.back-to-top::before,
-.back-to-top::after {
-  content: "";
-  position: absolute;
-  background-color: #00c4cc; /* Синяя стрелка по умолчанию */
-  transition: background-color 0.3s ease; /* Плавное изменение цвета */
-}
-
-.back-to-top::before {
-  width: 1px; /* Толщина линии стрелки */
-  height: 12px; /* Длина линии */
-  transform: rotate(45deg); /* Поворот для левой части стрелки */
-  top: 16px; /* Позиционирование */
-  left: 20px; /* Позиционирование */
-}
-
-.back-to-top::after {
-  width: 1px; /* Толщина линии стрелки */
-  height: 12px; /* Длина линии */
-  transform: rotate(-45deg); /* Поворот для правой части стрелки */
-  top: 16px; /* Позиционирование */
-  left: 27px; /* Позиционирование */
-}
-
-/* При наведении на кнопку */
-.back-to-top:hover {
-  background-color: #00c4cc; /* Синий фон */
-  border-color: #00c4cc; /* Синяя окантовка */
-}
-
-/* При наведении стрелка становится белой */
-.back-to-top:hover::before,
-.back-to-top:hover::after {
-  background-color: white; /* Белая стрелка */
-}

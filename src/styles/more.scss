@@ -125,6 +125,26 @@
         content: url("../icons/more-flow.svg");
       }
     }
+
+    &:hover::before {
+      content: url("../icons/more-cap1.svg");
+      transition: all 0.5s;
+    }
+
+    &-estate:hover::before {
+      content: url("../icons/more-building1.svg");
+      transition: all 0.5s;
+    }
+
+    &-fitness:hover::before {
+      content: url("../icons/more-circle1.svg");
+      transition: all 0.5s;
+    }
+
+    &-social:hover::before {
+      content: url("../icons/more-flow1.svg");
+      transition: all 0.5s;
+    }
   }
 
   &__subtitle {
