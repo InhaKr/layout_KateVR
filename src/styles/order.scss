@@ -121,7 +121,7 @@
 
 .step.active::after {
   @include on-desktoplittle {
-    content: "";
+    content: '';
 
     position: absolute;
     bottom: 10px;

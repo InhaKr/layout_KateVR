@@ -78,13 +78,13 @@
 
     &-control::before {
       @include on-tablet {
-        content: url("../icons/benefits-vr.svg");
+        content: url('../icons/benefits-vr.svg');
       }
     }
 
     &-sensors::before {
       @include on-tablet {
-        content: url("../icons/benefits-sound.svg");
+        content: url('../icons/benefits-sound.svg');
       }
     }
   }
@@ -108,7 +108,7 @@
     max-height: 75px;
 
     &::after {
-      content: "...";
+      content: '...';
       position: absolute;
       width: 100px;
       bottom: 0;

@@ -85,7 +85,7 @@
       display: none;
 
       @include on-tablet {
-        content: url("../icons/more-cap.svg");
+        content: url('../icons/more-cap.svg');
         display: block;
         position: absolute;
         width: 98px;
@@ -110,39 +110,39 @@
 
     &-estate::before {
       @include on-tablet {
-        content: url("../icons/more-building.svg");
+        content: url('../icons/more-building.svg');
       }
     }
 
     &-fitness::before {
       @include on-tablet {
-        content: url("../icons/more-circle.svg");
+        content: url('../icons/more-circle.svg');
       }
     }
 
     &-social::before {
       @include on-tablet {
-        content: url("../icons/more-flow.svg");
+        content: url('../icons/more-flow.svg');
       }
     }
 
     &:hover::before {
-      content: url("../icons/more-cap1.svg");
+      content: url('../icons/more-cap1.svg');
       transition: all 0.5s;
     }
 
     &-estate:hover::before {
-      content: url("../icons/more-building1.svg");
+      content: url('../icons/more-building1.svg');
       transition: all 0.5s;
     }
 
     &-fitness:hover::before {
-      content: url("../icons/more-circle1.svg");
+      content: url('../icons/more-circle1.svg');
       transition: all 0.5s;
     }
 
     &-social:hover::before {
-      content: url("../icons/more-flow1.svg");
+      content: url('../icons/more-flow1.svg');
       transition: all 0.5s;
     }
   }
@@ -188,7 +188,7 @@
 }
 
 .section__text::after {
-  content: "...";
+  content: '...';
   position: absolute;
   bottom: 0;
   right: 0;

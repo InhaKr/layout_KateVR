@@ -86,7 +86,7 @@
     right: 5px;
     width: 15px;
     height: 15px;
-    background: url("../icons/menu-close.svg") no-repeat center;
+    background: url('../icons/menu-close.svg') no-repeat center;
     background-size: contain;
     text-decoration: none;
 
@@ -157,7 +157,9 @@
 
       /* На планшетах и шире (≥768px) */
       bottom: 105px; /* Тот же отступ снизу */
-      left: calc(50% + 170px); /* Смещаем на половину ширины текста (340px / 2 = 170px) */
+      left: calc(
+        50% + 170px
+      ); /* Смещаем на половину ширины текста (340px / 2 = 170px) */
 
       transform: translateX(-70%); /* Центрируем */
     }
@@ -171,7 +173,7 @@
     }
   }
 
-  &__video-iframe[style*="display: block"] + .video--close-video {
+  &__video-iframe[style*='display: block'] + .video--close-video {
     display: block;
   }
 
@@ -347,7 +349,7 @@
         -webkit-text-fill-color: transparent;
 
         &::before {
-          content: "ABOUT US";
+          content: 'ABOUT US';
           position: absolute;
           width: 100%;
           top: 25%;
@@ -370,7 +372,7 @@
 
         /* Вторая тень */
         &::after {
-          content: "ABOUT US";
+          content: 'ABOUT US';
           position: absolute;
           top: -13%;
           left: 2%;

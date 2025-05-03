@@ -102,20 +102,28 @@
 }
 
 /* Подсвечиваем label для card-number */
-.payment-form__group:has(.card-number-group .payment-form__input:focus-visible) .buy-pay__form {
+.payment-form__group:has(.card-number-group .payment-form__input:focus-visible)
+  .buy-pay__form {
   color: $main-title-color-accent;
 }
 
 /* Подсвечиваем label только если его for соответствует id сфокусированного input */
-.payment-form__group label.card-holder-label:has(+ .payment-form__input.card-holder-input:focus-visible) {
+.payment-form__group
+  label.card-holder-label:has(
+    + .payment-form__input.card-holder-input:focus-visible
+  ) {
   color: $main-title-color-accent;
 }
 
-.payment-form__group label.expiry-date-label:has(+ .payment-form__input.expiry-date-input:focus-visible) {
+.payment-form__group
+  label.expiry-date-label:has(
+    + .payment-form__input.expiry-date-input:focus-visible
+  ) {
   color: $main-title-color-accent;
 }
 
-.payment-form__group label.cvv-label:has(+ .payment-form__input.cvv-input:focus-visible) {
+.payment-form__group
+  label.cvv-label:has(+ .payment-form__input.cvv-input:focus-visible) {
   color: $main-title-color-accent;
 }
 

@@ -8,7 +8,7 @@
 
   &::before,
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     background-color: #00c4cc; /* Синяя стрелка по умолчанию */
     transition: background-color 0.3s ease; /* Плавное изменение цвета */
