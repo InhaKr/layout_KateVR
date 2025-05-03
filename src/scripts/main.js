@@ -694,7 +694,7 @@ langLinks.forEach((link) => {
     e.preventDefault();
     const selectedLang = link.getAttribute('data-lang');
     setLanguage(selectedLang);
-    window.location.href = 'http://localhost:8080/';
+    window.location.href = 'https://inhakr.github.io/layout_KateVR/';
   });
 });
 
