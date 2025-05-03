@@ -95,7 +95,7 @@ button {
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  opacity: 0; /* Изначально скрыта */
+  opacity: 0; 
   visibility: hidden; /* Убираем из потока */
   transition: opacity 0.3s ease; /* Плавное появление */
   z-index: 1;
